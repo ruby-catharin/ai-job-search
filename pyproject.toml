@@ -1,0 +1,17 @@
+[project]
+name = "ai-job-scraper"
+version = "1.0.0"
+description = "AI-powered job scraper using Exa search and Claude for intelligent filtering"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "exa-py>=1.0.0",
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "python-dotenv>=1.0.0",
+    "anthropic>=0.40.0",
+]
+
+[project.urls]
+Repository = "https://github.com/yourusername/ai-job-scraper"
