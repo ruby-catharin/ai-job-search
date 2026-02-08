@@ -5,6 +5,7 @@
 import asyncio
 import json
 import os
+import shutil
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -478,6 +479,13 @@ async def main():
 
     if new_count > 0:
         print(f"  Found {new_count} new jobs!")
+
+    # Backup existing file before overwriting
+    if Path(OUTPUT_FILE).exists():
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_path = OUTPUT_FILE.replace(".xlsx", f"_backup_{timestamp}.xlsx")
+        shutil.copy2(OUTPUT_FILE, backup_path)
+        print(f"\nBackup saved: {backup_path}")
 
     # Export
     print(f"\nExporting to: {OUTPUT_FILE}")
